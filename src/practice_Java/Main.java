@@ -3,29 +3,29 @@ package practice_Java;
 public class Main {
 	public static void main(String[] args) {
 
-		// 머쓱이네 양꼬치 가게는 10인분을 먹으면 음료수 하나를 서비스로 줍니다. 
-		// 양꼬치는 1인분에 12,000원, 음료수는 2,000원입니다. 
-		// 정수 n과 k가 매개변수로 주어졌을 때, 양꼬치 n인분과 음료수 k개를 먹었다면 
-		// 총얼마를 지불해야 하는지 return 하도록 solution 함수를 완성해보세요.
+		// 정수 배열 numbers가 매개변수로 주어집니다. 
+		// numbers의 원소의 평균값을 return하도록 solution 함수를 완성해주세요.
 
-		int food = 11;
-		int drink = 3;
-
-		System.out.println(solution(food, drink));
+		// numbers_len은 배열 numbers의 길이입니다.
+		
+		
+		
+		int [] num = {89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99};
+		
+		
+		System.out.println(solution(num, num.length));
 	}
 
-	public static int solution(int food, int drink) {
-		int money = 0;
-		
-		int service = 0;
-		
-		if(food / 10 > 0) {
-			service = (int) food / 10;
-		}
-		
-		money = (12000 * food) + (2000*(drink - service));
-		
-		return money;
+	public static double solution(int num[], int numbers_len) {
+	    double answer = 0;
+	    double sum = 0;
+	    
+	    for(int i = 0; i < numbers_len ; i++) {
+	    	sum = sum + num[i];
+	    }
+	    answer = sum / numbers_len ;
+	    
+	    return answer; 
 	}
 
 }
