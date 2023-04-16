@@ -3,23 +3,29 @@ package practice_Java;
 public class Main {
 	public static void main(String[] args) {
 
-		// 정수 n이 주어질 때, n이하의 짝수를 모두 
-		// 더한 값을 return 하도록 solution 함수를 작성해주세요.
+		// 머쓱이네 양꼬치 가게는 10인분을 먹으면 음료수 하나를 서비스로 줍니다. 
+		// 양꼬치는 1인분에 12,000원, 음료수는 2,000원입니다. 
+		// 정수 n과 k가 매개변수로 주어졌을 때, 양꼬치 n인분과 음료수 k개를 먹었다면 
+		// 총얼마를 지불해야 하는지 return 하도록 solution 함수를 완성해보세요.
 
-		int num = 10;
+		int food = 11;
+		int drink = 3;
 
-		System.out.println(solution(num));
+		System.out.println(solution(food, drink));
 	}
 
-	public static int solution(int num) {
-		int sum = 0;
+	public static int solution(int food, int drink) {
+		int money = 0;
 		
-		for(int i = 0; i <= num; i++) {
-			if(i % 2 == 0) {
-				sum = sum +i;
-			}
+		int service = 0;
+		
+		if(food / 10 > 0) {
+			service = (int) food / 10;
 		}
-		return sum;
+		
+		money = (12000 * food) + (2000*(drink - service));
+		
+		return money;
 	}
 
 }
