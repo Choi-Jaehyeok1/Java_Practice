@@ -3,26 +3,28 @@ package practice_Java;
 public class Main {
 	public static void main(String[] args) {
 
-		// 정수 배열 numbers가 매개변수로 주어집니다. 
-		// numbers의 각 원소에 두배한 원소를 가진 배열을 
-		// return하도록 solution 함수를 완성해주세요.
+		// 머쓱이는 학교에서 키 순으로 줄을 설 때 몇 번째로 
+		// 서야 하는지 궁금해졌습니다. 머쓱이네 반 친구들의 
+		// 키가 담긴 정수 배열 array와 머쓱이의 키 height가 
+		// 매개변수로 주어질 때, 머쓱이보다 키 큰 사람 수를 
+		// return 하도록 solution 함수를 완성해보세요.
 		
-		
-		
-		int[] numbers = {1, 2, 3, 4, 5};
-		int[] num_return = solution(numbers);
+		int[] array = {161, 162, 163, 174, 175};
+		int height = 165;
+		int countman = solution(array, height);
 
-		for(int i = 0; i < num_return.length; i++) {
-			System.out.println(num_return[i]);
-		}
+		System.out.println(countman);
 		
 	}
 
-	    public static int[] solution(int[] numbers) {
-	        int[] answer = new int[numbers.length];
-	        for(int i = 0; i < numbers.length; i++) {
-	        	answer[i] = numbers[i] * 2 ;
+	    public static int solution(int[] array, int height) {
+	        int answer = 0;
+	        for(int i = 0; i<array.length; i++) {
+	        	if(array[i] > height) {
+	        		answer++;
+	        	}
 	        }
+	        
 	        return answer;
 	    }
 }
