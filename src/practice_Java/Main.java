@@ -3,26 +3,27 @@ package practice_Java;
 public class Main {
 	public static void main(String[] args) {
 
-		// 머쓱이는 학교에서 키 순으로 줄을 설 때 몇 번째로 
-		// 서야 하는지 궁금해졌습니다. 머쓱이네 반 친구들의 
-		// 키가 담긴 정수 배열 array와 머쓱이의 키 height가 
-		// 매개변수로 주어질 때, 머쓱이보다 키 큰 사람 수를 
-		// return 하도록 solution 함수를 완성해보세요.
+		// 정수 배열 numbers와 정수 num1, num2가 매개변수로 주어질 때, 
+		// numbers의 num1번 째 인덱스부터 num2번째 인덱스까지 자른 정수 
+		// 배열을 return 하도록 solution 함수를 완성해보세요.
 		
-		int[] array = {161, 162, 163, 174, 175};
-		int height = 165;
-		int countman = solution(array, height);
+		int[] numbers = {1,2,3,4,5,6,7,8,9,10};
+		int num1 = 2;
+		int num2 = 5;
+		int[] solution_num = solution(numbers, num1, num2);
 
-		System.out.println(countman);
-		
+		for(int i = 0; i < solution_num.length; i++) {
+			System.out.printf("%d\n", solution_num[i]);
+		}
 	}
 
-	    public static int solution(int[] array, int height) {
-	        int answer = 0;
-	        for(int i = 0; i<array.length; i++) {
-	        	if(array[i] > height) {
-	        		answer++;
-	        	}
+	    public static int[] solution(int[] numbers, int num1, int num2) {
+	        int[] answer = new int [num2+1 - num1];
+	        
+	        int count = 0;
+	        for(int i = num1; i <= num2; i++) {
+	        	answer[count] = numbers[i];
+        		count ++;
 	        }
 	        
 	        return answer;
