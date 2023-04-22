@@ -3,22 +3,31 @@ package practice_Java;
 public class Main {
 	public static void main(String[] args) {
 
-		// 머쓱이네 피자가게는 피자를 일곱 조각으로 잘라 줍니다.
-		// 피자를 나눠먹을 사람의 수 n이 주어질 때,
-		// 모든 사람이 피자를 한 조각 이상 먹기 위해 필요한
-		// 피자의 수를 return 하는 solution 함수를 완성해보세요.
+		// 정수가 담긴 리스트 num_list가 주어질 때, 
+		// num_list의 원소 중 짝수와 홀수의 개수를 담은 
+		// 배열을 return 하도록 solution 함수를 완성해보세요.
 
-		int people = 15;
-		int return_pizza = solution(people);
-		System.out.println(return_pizza);
+		int[] num_list = {1,2,3,4,5,6,7,8,15};
+		int[] return_count_num = solution(num_list);
+		System.out.println(return_count_num);
 		
 	}
 
-	public static int solution(int n) {
-		int pizza = 7;
-		
-		double pizzas = (double)n/(double)pizza;
-		
-		return (int) Math.ceil(pizzas);
-	}
+	public static int[] solution(int[] num_list) {
+        int count1 = 0;
+        int count2 = 0;
+        
+        for(int i = 0; i < num_list.length; i++) {
+        	if(num_list[i] % 2 == 0) {
+        		count1++;
+        	} else {
+        		count2++;
+        	}
+        }
+        
+        int[] answer = {count1, count2};
+
+        	
+        return answer;
+    }
 }
