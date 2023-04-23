@@ -3,21 +3,44 @@ package practice_Java;
 public class Main {
 	public static void main(String[] args) {
 
-		// 문자열 my_string과 문자 letter이 매개변수로 주어집니다. 
-		// my_string에서 letter를 제거한 문자열을 return하도록 
-		// solution 함수를 완성해주세요.
+		// 정수 배열 numbers가 매개변수로 주어집니다.
+		// numbers의 원소 중 두 개를 곱해 만들 수 있는
+		// 최댓값을 return하도록 solution 함수를 완성해주세요.
 
-		String my_string = "abcdef";
-		String letter = "f";
-		String return_string = solution(my_string, letter);
-		System.out.println(return_string);
-		
+		int[] numbers = { 1, 2, 3, 5, 5 };
+		int return_number = solution(numbers);
+		System.out.println(return_number);
+
 	}
 
-	public static String solution(String my_string, String letter) {
-        String answer = my_string.replace(letter,"");
-        
-        return answer;
-    }
+	public static int solution(int[] numbers) {
+
+		int first = numbers[0];
+		int second = numbers[0];
+		int count = 0;
+		for (int i = 0; i < numbers.length; i++) {
+			if (numbers[i] > first) {
+				first = numbers[i];
+			}
+		}
+
+		for (int i = 0; i < numbers.length; i++) {
+			if (numbers[i] > second && numbers[i] != first) {
+				second = numbers[i];
+			}
+		}
+		for (int i = 0; i < numbers.length; i++) {
+			if (first == numbers[i]) {
+				count++;
+			}
+		}
+
+		if (count > 1) {
+			second = first;
+		}
+
+		return first * second;
+
+	}
 
 }
