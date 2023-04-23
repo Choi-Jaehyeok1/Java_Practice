@@ -3,31 +3,21 @@ package practice_Java;
 public class Main {
 	public static void main(String[] args) {
 
-		// 정수가 담긴 리스트 num_list가 주어질 때, 
-		// num_list의 원소 중 짝수와 홀수의 개수를 담은 
-		// 배열을 return 하도록 solution 함수를 완성해보세요.
+		// 문자열 my_string과 문자 letter이 매개변수로 주어집니다. 
+		// my_string에서 letter를 제거한 문자열을 return하도록 
+		// solution 함수를 완성해주세요.
 
-		int[] num_list = {1,2,3,4,5,6,7,8,15};
-		int[] return_count_num = solution(num_list);
-		System.out.println(return_count_num);
+		String my_string = "abcdef";
+		String letter = "f";
+		String return_string = solution(my_string, letter);
+		System.out.println(return_string);
 		
 	}
 
-	public static int[] solution(int[] num_list) {
-        int count1 = 0;
-        int count2 = 0;
+	public static String solution(String my_string, String letter) {
+        String answer = my_string.replace(letter,"");
         
-        for(int i = 0; i < num_list.length; i++) {
-        	if(num_list[i] % 2 == 0) {
-        		count1++;
-        	} else {
-        		count2++;
-        	}
-        }
-        
-        int[] answer = {count1, count2};
-
-        	
         return answer;
     }
+
 }
