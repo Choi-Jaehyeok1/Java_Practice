@@ -15,8 +15,8 @@ public class Main {
 
 	public static int solution(int[] numbers) {
 
-		int first = numbers[0];
-		int second = numbers[0];
+		int first = 0;
+		int second = 0;
 		int count = 0;
 		for (int i = 0; i < numbers.length; i++) {
 			if (numbers[i] > first) {
