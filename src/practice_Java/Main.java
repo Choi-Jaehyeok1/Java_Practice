@@ -3,44 +3,28 @@ package practice_Java;
 public class Main {
 	public static void main(String[] args) {
 
-		// 정수 배열 numbers가 매개변수로 주어집니다.
-		// numbers의 원소 중 두 개를 곱해 만들 수 있는
-		// 최댓값을 return하도록 solution 함수를 완성해주세요.
+		// 머쓱이는 추운 날에도 아이스 아메리카노만 마십니다. 
+		// 아이스 아메리카노는 한잔에 5,500원입니다. 
+		// 머쓱이가 가지고 있는 돈 money가 매개변수로 주어질 때, 
+		// 머쓱이가 최대로 마실 수 있는 아메리카노의 잔 수와 남는 
+		// 돈을 순서대로 담은 배열을 return 하도록 solution 함수를 완성해보세요.
 
-		int[] numbers = { 1, 2, 3, 5, 5 };
-		int return_number = solution(numbers);
-		System.out.println(return_number);
-
+		int money = 10000;
+		int[] return_money = solution(money);
+		System.out.println(return_money);
 	}
 
-	public static int solution(int[] numbers) {
 
-		int first = 0;
-		int second = 0;
-		int count = 0;
-		for (int i = 0; i < numbers.length; i++) {
-			if (numbers[i] > first) {
-				first = numbers[i];
-			}
-		}
-
-		for (int i = 0; i < numbers.length; i++) {
-			if (numbers[i] > second && numbers[i] != first) {
-				second = numbers[i];
-			}
-		}
-		for (int i = 0; i < numbers.length; i++) {
-			if (first == numbers[i]) {
-				count++;
-			}
-		}
-
-		if (count > 1) {
-			second = first;
-		}
-
-		return first * second;
-
-	}
+	public static int[] solution(int money) {
+        int[] answer = new int [2];
+        
+        int coffee = 5500;
+        
+        answer[0] = (int) (money / coffee);
+        answer[1] = (int) (money % coffee);
+        
+        
+        return answer;
+    }
 
 }
