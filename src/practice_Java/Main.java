@@ -1,43 +1,32 @@
 package practice_Java;
 
-import java.util.Arrays;
-
 public class Main {
 	public static void main(String[] args) {
 
-		// 선분 세 개로 삼각형을 만들기 위해서는 다음과 같은 조건을 만족해야 합니다.
-		// 가장 긴 변의 길이는 다른 두 변의 길이의 합보다 작아야 합니다.
-		// 삼각형의 세 변의 길이가 담긴 배열 sides이 매개변수로 주어집니다.
-		// 세 변으로 삼각형을 만들 수 있다면 1, 만들 수 없다면 2를
+		// 순서쌍이란 두 개의 숫자를 순서를 정하여 짝지어 
+		// 나타낸 쌍으로 (a, b)로 표기합니다. 자연수 n이 매개변수로 
+		// 주어질 때 두 숫자의 곱이 n인 자연수 순서쌍의 개수를 
 		// return하도록 solution 함수를 완성해주세요.
 
-		int[]sides = {1,2,3};
-		int return_answer = solution(sides);
+		int n = 100;
+		int return_answer = solution(n);
 		System.out.println(return_answer);
 
 	}
 
-	public static int solution(int[] sides) {
-		int answer = 0;
-		int maxside = 0;
-		
-		for(int i = 0; i < sides.length; i++) {
-			for(int j = i+1; j<sides.length; j++) {
-				if(sides[j] > sides[i]) {
-					maxside = sides[j];
-					sides[j] = sides[i];
-					sides[i] = maxside;
-				}
-			}
-		}
-		
-		if(sides[0] < sides[1] + sides[2]) {
-			answer = 1;
-		} else {
-			answer = 2;
-		}
-		
-		return answer;
+	public static int solution(int n) {
+        int answer = 0;
+        
+        for(int i = 1; i <= n; i++) {
+        	for(int j = 1; j <= n; j++) {
+
+        		if(i * j == n) {
+        			answer ++;
+        		}
+        	}
+        }
+        
+        return answer;
 
 	}
 
