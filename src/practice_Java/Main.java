@@ -5,30 +5,40 @@ import java.util.Arrays;
 public class Main {
 	public static void main(String[] args) {
 
-		// 문자열 my_string과 정수 n이 매개변수로 주어질 때, 
-		// my_string에 들어있는 각 문자를 n만큼 반복한 문자열을 
-		// return 하도록 solution 함수를 완성해보세요.
+		// 선분 세 개로 삼각형을 만들기 위해서는 다음과 같은 조건을 만족해야 합니다.
+		// 가장 긴 변의 길이는 다른 두 변의 길이의 합보다 작아야 합니다.
+		// 삼각형의 세 변의 길이가 담긴 배열 sides이 매개변수로 주어집니다.
+		// 세 변으로 삼각형을 만들 수 있다면 1, 만들 수 없다면 2를
+		// return하도록 solution 함수를 완성해주세요.
 
-
-		String my_string = "love";
-		int n = 3;
-		String return_answer = solution(my_string, n);
+		int[]sides = {1,2,3};
+		int return_answer = solution(sides);
 		System.out.println(return_answer);
-		
+
 	}
 
-
-	public static String solution(String my_string, int n) {
-        String answer = "";
-        String[] array_my_string = my_string.split("");
-     
-		for(int i = 0; i < array_my_string.length; i++) {
-			for(int j = 0; j < n; j++) {
-				answer = answer + array_my_string[i];
+	public static int solution(int[] sides) {
+		int answer = 0;
+		int maxside = 0;
+		
+		for(int i = 0; i < sides.length; i++) {
+			for(int j = i+1; j<sides.length; j++) {
+				if(sides[j] > sides[i]) {
+					maxside = sides[j];
+					sides[j] = sides[i];
+					sides[i] = maxside;
+				}
 			}
 		}
-        
-        return answer;
-    }
+		
+		if(sides[0] < sides[1] + sides[2]) {
+			answer = 1;
+		} else {
+			answer = 2;
+		}
+		
+		return answer;
+
+	}
 
 }
