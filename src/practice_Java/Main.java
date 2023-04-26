@@ -1,28 +1,41 @@
 package practice_Java;
 
+import java.util.Arrays;
+
 public class Main {
 	public static void main(String[] args) {
 
-		// 머쓱이네 피자가게는 피자를 두 조각에서 열 조각까지
-		// 원하는 조각 수로 잘라줍니다. 피자 조각 수 slice와
-		// 피자를 먹는 사람의 수 n이 매개변수로 주어질 때,
-		// n명의 사람이 최소 한 조각 이상 피자를 먹으려면
-		// 최소 몇 판의 피자를 시켜야 하는지를 return 하도록 solution 함수를 완성해보세요.
+		// 정수 n이 매개변수로 주어질 때, 
+		// n 이하의 홀수가 오름차순으로 담긴 배열을 
+		// return하도록 solution 함수를 완성해주세요.
 
-		int slice = 7;
-		int n = 10;
-		int return_answer = solution(slice, n);
-		System.out.println(return_answer);
-
+		int n = 15;
+		int[] return_answer = solution(n);
+//		System.out.println(return_answer);
+		for(int i = 0; i < return_answer.length; i++) {
+			System.out.println(return_answer[i]);
+		}
 	}
 
-	public static int solution(int slice, int n) {
-		int answer = n / slice;
-		if (n % slice != 0) {
-			answer = answer + 1;
+	public static int[] solution(int n) {
+		int a;
+		if(n % 2 == 0) {
+			a = n/2;
+		} else {
+			a = n/2 + 1;
 		}
-
-		return answer;
+		
+        int[] answer = new int [a];
+        int count = 0;
+        for(int i = 1; i <= n; i++) {
+        	if(i%2 != 0) {
+        		answer[count] = i;
+        		count++;
+        	}
+        }
+        Arrays.sort(answer);
+        
+        return answer;
 	}
 
 }
