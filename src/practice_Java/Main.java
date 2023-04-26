@@ -3,35 +3,26 @@ package practice_Java;
 public class Main {
 	public static void main(String[] args) {
 
-		// 두 배열이 얼마나 유사한지 확인해보려고 합니다. 
-		// 문자열 배열 s1과 s2가 주어질 때 같은 원소의 개수를 
-		// return하도록 solution 함수를 완성해주세요.
+		// 머쓱이네 피자가게는 피자를 두 조각에서 열 조각까지
+		// 원하는 조각 수로 잘라줍니다. 피자 조각 수 slice와
+		// 피자를 먹는 사람의 수 n이 매개변수로 주어질 때,
+		// n명의 사람이 최소 한 조각 이상 피자를 먹으려면
+		// 최소 몇 판의 피자를 시켜야 하는지를 return 하도록 solution 함수를 완성해보세요.
 
-
-
-		String [] s1 = {"n", "omg"};
-		String [] s2 = {"m", "dot"};
-		int return_answer = solution(s1, s2);
+		int slice = 7;
+		int n = 10;
+		int return_answer = solution(slice, n);
 		System.out.println(return_answer);
 
 	}
 
-	public static int solution(String[] s1, String[] s2) {
-        int answer = 0;
-        String same = "";
-        for(int i = 0; i< s1.length; i++) {
-        	for(int j = 0; j< s2.length; j++) {
-        		if(s1[i].equals(s2[j])) {
-        			if(s2[j] == same) {
-        				continue;
-        			}
-        			same = s1[i];
-        			answer++;
-        		}
-        	}
-        }
-        
-        return answer;
+	public static int solution(int slice, int n) {
+		int answer = n / slice;
+		if (n % slice != 0) {
+			answer = answer + 1;
+		}
+
+		return answer;
 	}
 
 }
