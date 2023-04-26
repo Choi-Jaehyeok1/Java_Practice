@@ -3,28 +3,33 @@ package practice_Java;
 public class Main {
 	public static void main(String[] args) {
 
-		// 영어에선 a, e, i, o, u 다섯 가지 알파벳을 모음으로 분류합니다.
-		// 문자열 my_string이 매개변수로 주어질 때
-		// 모음을 제거한 문자열을 return하도록 solution 함수를 완성해주세요.
+		// 두 배열이 얼마나 유사한지 확인해보려고 합니다. 
+		// 문자열 배열 s1과 s2가 주어질 때 같은 원소의 개수를 
+		// return하도록 solution 함수를 완성해주세요.
 
-		String my_string = "bus";
-		String return_answer = solution(my_string);
+
+
+		String [] s1 = {"n", "omg"};
+		String [] s2 = {"m", "dot"};
+		int return_answer = solution(s1, s2);
 		System.out.println(return_answer);
 
 	}
 
-	public static String solution(String my_string) {
-		String answer = "";
-        String[] replace = {"a", "e", "i", "o", "u"};
-        for(int i = 0; i<replace.length; i++) {
-			if( my_string.contains(replace[i])) {
-				answer = my_string.replaceAll(replace[i], "");
-				my_string = answer;
-			} else {
-                answer =my_string;
-            }
-		}
-        
+	public static int solution(String[] s1, String[] s2) {
+        int answer = 0;
+        String same = "";
+        for(int i = 0; i< s1.length; i++) {
+        	for(int j = 0; j< s2.length; j++) {
+        		if(s1[i].equals(s2[j])) {
+        			if(s2[j] == same) {
+        				continue;
+        			}
+        			same = s1[i];
+        			answer++;
+        		}
+        	}
+        }
         
         return answer;
 	}
