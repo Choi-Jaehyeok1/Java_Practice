@@ -3,33 +3,24 @@ package practice_Java;
 public class Main {
 	public static void main(String[] args) {
 
-		// 개미 군단이 사냥을 나가려고 합니다. 
-		// 개미군단은 사냥감의 체력에 딱 맞는 병력을 데리고 나가려고 합니다. 
-		// 장군개미는 5의 공격력을, 병정개미는 3의 공격력을 일개미는 
-		// 1의 공격력을 가지고 있습니다. 
-		// 예를 들어 체력 23의 여치를 사냥하려고 할 때, 
-		// 일개미 23마리를 데리고 가도 되지만, 
-		// 장군개미 네 마리와 병정개미 한 마리를 데리고 간다면 
-		// 더 적은 병력으로 사냥할 수 있습니다. 
-		// 사냥감의 체력 hp가 매개변수로 주어질 때, 
-		// 사냥감의 체력에 딱 맞게 최소한의 병력을 구성하려면 
-		// 몇 마리의 개미가 필요한지를 return하도록 solution 함수를 완성해주세요.
+		// 어떤 자연수를 제곱했을 때 나오는 정수를 제곱수라고 합니다. 
+		// 정수 n이 매개변수로 주어질 때, n이 제곱수라면 1을 아니라면 2를 
+		// return하도록 solution 함수를 완성해주세요.
 
-		int hp = 27;
-		int return_answer = solution(hp);
+		int n = 144;
+		int return_answer = solution(n);
 		System.out.println(return_answer);
 	}
 
-	public static int solution(int hp) {
-        int answer = 0;
-        int king = 0;
-        int main = 0;
-        int worker = 0;
-        
-        king = hp / 5;
-        main = (hp%5)/3;
-        worker = ((hp%5)%3);
-        answer = king + main + worker;
+	public static int solution(int n) {
+		int answer = 0;
+		double n2 = Math.sqrt(n);
+		if(n2 % 1 == 0) {
+			answer = 1;
+		} else {
+			answer = 2;
+		}
+		
         return answer;
 	}
 
