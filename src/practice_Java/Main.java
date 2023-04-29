@@ -3,28 +3,33 @@ package practice_Java;
 public class Main {
 	public static void main(String[] args) {
 
-		// 문자열 str1, str2가 매개변수로 주어집니다. 
-		// str1 안에 str2가 있다면 1을 없다면 2를 
-		// return하도록 solution 함수를 완성해주세요.
+		// 개미 군단이 사냥을 나가려고 합니다. 
+		// 개미군단은 사냥감의 체력에 딱 맞는 병력을 데리고 나가려고 합니다. 
+		// 장군개미는 5의 공격력을, 병정개미는 3의 공격력을 일개미는 
+		// 1의 공격력을 가지고 있습니다. 
+		// 예를 들어 체력 23의 여치를 사냥하려고 할 때, 
+		// 일개미 23마리를 데리고 가도 되지만, 
+		// 장군개미 네 마리와 병정개미 한 마리를 데리고 간다면 
+		// 더 적은 병력으로 사냥할 수 있습니다. 
+		// 사냥감의 체력 hp가 매개변수로 주어질 때, 
+		// 사냥감의 체력에 딱 맞게 최소한의 병력을 구성하려면 
+		// 몇 마리의 개미가 필요한지를 return하도록 solution 함수를 완성해주세요.
 
-		String str1 = "ab6CDE443fgh22iJKlmn1o";
-		String str2 = "6CD";
-		int return_answer = solution(str1, str2);
+		int hp = 27;
+		int return_answer = solution(hp);
 		System.out.println(return_answer);
-//		for(int i = 0; i < return_answer.length; i++) {
-//			System.out.println(return_answer[i]);
-//		}
 	}
 
-	public static int solution(String str1, String str2) {
+	public static int solution(int hp) {
         int answer = 0;
+        int king = 0;
+        int main = 0;
+        int worker = 0;
         
-        if(str1.contains(str2)) {
-        	answer = 1;
-        } else {
-        	answer =2;
-        }
-        
+        king = hp / 5;
+        main = (hp%5)/3;
+        worker = ((hp%5)%3);
+        answer = king + main + worker;
         return answer;
 	}
 
