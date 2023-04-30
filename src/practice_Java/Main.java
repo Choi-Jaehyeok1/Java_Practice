@@ -3,24 +3,33 @@ package practice_Java;
 public class Main {
 	public static void main(String[] args) {
 
-		// 어떤 자연수를 제곱했을 때 나오는 정수를 제곱수라고 합니다. 
-		// 정수 n이 매개변수로 주어질 때, n이 제곱수라면 1을 아니라면 2를 
-		// return하도록 solution 함수를 완성해주세요.
-
-		int n = 144;
-		int return_answer = solution(n);
+		// 군 전략가 머쓱이는 전쟁 중 적군이
+		// 다음과 같은 암호 체계를 사용한다는 것을 알아냈습니다.
+		// 암호화된 문자열 cipher를 주고받습니다.
+		// 그 문자열에서 code의 배수 번째 글자만 진짜 암호입니다.
+		// 문자열 cipher와 정수 code가 매개변수로 주어질 때 해독된 암호
+		// 문자열을 return하도록 solution 함수를 완성해주세요.
+		
+		String cipher = "dfjardstddetckdaccccdegk";
+		int code = 4;
+        
+		String return_answer = solution(cipher, code);
 		System.out.println(return_answer);
 	}
 
-	public static int solution(int n) {
-		int answer = 0;
-		double n2 = Math.sqrt(n);
-		if(n2 % 1 == 0) {
-			answer = 1;
-		} else {
-			answer = 2;
-		}
-		
+	public static String solution(String cipher, int code) {
+        String answer = "";
+        String [] reanswer = cipher.split("");
+        
+        for(int i = 0; i < cipher.length(); i++) {
+        	if(i * code == 0) {
+        		continue;
+        	}
+        	if(i * code <= cipher.length()) {
+        		answer = answer + reanswer[code * i -1];
+        	}
+        } 
+        
         return answer;
 	}
 
