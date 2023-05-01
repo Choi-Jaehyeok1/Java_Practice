@@ -11,7 +11,7 @@ public class Main {
 		// 문자열을 return하도록 solution 함수를 완성해주세요.
 		
 		String cipher = "dfjardstddetckdaccccdegk";
-		int code = 4;
+		int code = 1;
         
 		String return_answer = solution(cipher, code);
 		System.out.println(return_answer);
@@ -28,7 +28,11 @@ public class Main {
         	if(i * code <= cipher.length()) {
         		answer = answer + reanswer[code * i -1];
         	}
-        } 
+        }
+        if(code == 1) {
+        	answer = answer + reanswer[cipher.length()-1];
+        }
+
         
         return answer;
 	}
