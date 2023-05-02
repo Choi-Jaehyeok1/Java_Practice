@@ -3,36 +3,30 @@ package practice_Java;
 public class Main {
 	public static void main(String[] args) {
 
-		// 군 전략가 머쓱이는 전쟁 중 적군이
-		// 다음과 같은 암호 체계를 사용한다는 것을 알아냈습니다.
-		// 암호화된 문자열 cipher를 주고받습니다.
-		// 그 문자열에서 code의 배수 번째 글자만 진짜 암호입니다.
-		// 문자열 cipher와 정수 code가 매개변수로 주어질 때 해독된 암호
+		// 문자열 my_string이 매개변수로 주어질 때, 
+		// 대문자는 소문자로 소문자는 대문자로 변환한 
 		// 문자열을 return하도록 solution 함수를 완성해주세요.
 		
-		String cipher = "dfjardstddetckdaccccdegk";
-		int code = 1;
+
+		
+		String my_string = "CCCcccdddDDD";
         
-		String return_answer = solution(cipher, code);
+		String return_answer = solution( my_string);
 		System.out.println(return_answer);
 	}
 
-	public static String solution(String cipher, int code) {
+	public static String solution(String my_string) {
         String answer = "";
-        String [] reanswer = cipher.split("");
-        
-        for(int i = 0; i < cipher.length(); i++) {
-        	if(i * code == 0) {
-        		continue;
-        	}
-        	if(i * code <= cipher.length()) {
-        		answer = answer + reanswer[code * i -1];
+        for(int i = 0; i<my_string.length(); i++) {
+            String ABC= "";
+        	if(Character.isUpperCase(my_string.charAt(i))) {
+        		ABC = "" + my_string.charAt(i);
+        		answer += ABC.toLowerCase();
+        	} else {
+        		ABC = "" + my_string.charAt(i);
+        		answer += ABC.toUpperCase();
         	}
         }
-        if(code == 1) {
-        	answer = answer + reanswer[cipher.length()-1];
-        }
-
         
         return answer;
 	}
