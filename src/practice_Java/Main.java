@@ -3,30 +3,25 @@ package practice_Java;
 public class Main {
 	public static void main(String[] args) {
 
-		// 문자열 my_string이 매개변수로 주어질 때, 
-		// 대문자는 소문자로 소문자는 대문자로 변환한 
-		// 문자열을 return하도록 solution 함수를 완성해주세요.
+		// 어떤 세균은 1시간에 두배만큼 증식한다고 합니다. 
+		// 처음 세균의 마리수 n과 경과한 시간 t가 매개변수로 주어질 때 
+		// t시간 후 세균의 수를 return하도록 solution 함수를 완성해주세요.
 		
 
 		
-		String my_string = "CCCcccdddDDD";
-        
-		String return_answer = solution( my_string);
+		int n = 100;
+		int t = 3;
+		int return_answer = solution(n,  t);
 		System.out.println(return_answer);
 	}
 
-	public static String solution(String my_string) {
-        String answer = "";
-        for(int i = 0; i<my_string.length(); i++) {
-            String ABC= "";
-        	if(Character.isUpperCase(my_string.charAt(i))) {
-        		ABC = "" + my_string.charAt(i);
-        		answer += ABC.toLowerCase();
-        	} else {
-        		ABC = "" + my_string.charAt(i);
-        		answer += ABC.toUpperCase();
-        	}
+	public static int solution(int n, int t) {
+        int answer = 0;
+        int n2 = 1;
+        for(int i = 1; i <= t; i++) {
+        	n2 = n2*2;
         }
+        answer = n * n2;
         
         return answer;
 	}
