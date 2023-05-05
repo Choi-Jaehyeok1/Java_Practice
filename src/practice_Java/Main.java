@@ -1,33 +1,22 @@
 package practice_Java;
 
-import java.util.Arrays;
-
 public class Main {
 	public static void main(String[] args) {
 
-		// 가위는 2 바위는 0 보는 5로 표현합니다.
-		// 가위 바위 보를 내는 순서대로 나타낸 문자열
-		// rsp가 매개변수로 주어질 때, rsp에 저장된 가위 바위 보를
-		// 모두 이기는 경우를 순서대로 나타낸 문자열을 return하도록 solution 함수를 완성해보세요.
-
-		String rsp = "502";
-		String return_answer = solution(rsp);
+		// 머쓱이는 직육면체 모양의 상자를 하나 가지고 있는데 
+		// 이 상자에 정육면체 모양의 주사위를 최대한 많이 채우고 싶습니다. 
+		// 상자의 가로, 세로, 높이가 저장되어있는 배열 box와 주사위 
+		// 모서리의 길이 정수 n이 매개변수로 주어졌을 때, 
+		// 상자에 들어갈 수 있는 주사위의 최대 개수를 return 하도록 solution 함수를 완성해주세요.
+		
+		int[] box = {10,8,6};
+		int n = 3;
+		int return_answer = solution(box, n);
 		System.out.println(return_answer);
 	}
 
-	public static String solution(String rsp) {
-		String answer = "";
-		for(int i = 0; i<rsp.length(); i++) {
-			if(rsp.split("")[i].equals("0")) {
-				answer += "5";
-			} else if(rsp.split("")[i].equals("5")) {
-				answer += "2";
-			} else {
-				answer += "0";
-			}
-		}
-
-		return answer;
+	public static int solution(int[] box, int n) {
+        return (int)(box[0] / n) * (int)(box[1] / n) * (int)(box[2] / n); 
 	}
 
 }
