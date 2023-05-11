@@ -1,28 +1,38 @@
 package practice_Java;
 
-import java.util.ArrayList;
-
 public class Solution {
 	public static void main(String[] args) {
 
-		// 정수 n과 정수 배열 numlist가 매개변수로 주어질 때, 
-		// numlist에서 n의 배수가 아닌 수들을 제거한 배열을 
+		// 정수가 담긴 배열 numbers와 문자열 direction가 매개변수로 주어집니다. 
+		// 배열 numbers의 원소를 direction방향으로 한 칸씩 회전시킨 배열을 
 		// return하도록 solution 함수를 완성해주세요.
+
+
 		
-		int n = 3;
-		int[] numlist = {4, 5, 6, 7, 8, 9, 10, 11, 12};
-		ArrayList<Integer> re_answer = solution(n, numlist);
-		System.out.println(re_answer);
+		int[] numbers = {4, 455, 6, 4, -1, 45, 6};
+		String direction = "left";
+		 int[] re_answer = solution(numbers, direction);
+//		System.out.println(re_answer);
+		
+		for(int i = 0; i<re_answer.length; i++) {
+			System.out.println(re_answer[i]);
+		}
+		
+		
 	}
 
-	public static ArrayList<Integer> solution(int n, int[] numlist) {
-		
-		ArrayList<Integer>answer = new ArrayList<Integer>();
-		
-        for(int i = 0 ; i < numlist.length; i++) {
-        	if( numlist[i] % n == 0) {
-        		answer.add(numlist[i]);
+	public static int[] solution(int[] numbers, String direction) {
+        int[] answer = new int [numbers.length];
+        if(direction.equals("right")) {
+        	for(int i = 0 ; i < numbers.length-1; i++) {
+        		answer[i+1] = numbers[i];
         	}
+        	answer[0] = numbers[numbers.length-1];
+        } else {
+        	for(int i = 1 ; i < numbers.length; i++) {
+        		answer[i-1] = numbers[i];
+        	}
+        	answer[numbers.length-1] = numbers[0];
         }
         
         return answer;
